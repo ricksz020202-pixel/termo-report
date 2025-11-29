@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+<h2>Termo Report</h2>
+<input id="email" placeholder="Email">
+<input id="pass" type="password" placeholder="Contraseña">
+<button onclick="login()">Ingresar</button>
+<p id="msg"></p>
+</div>
+<script>
+const users = {
+ "oper1@demo.com":"123456",
+ "oper2@demo.com":"123456",
+ "sup1@demo.com":"123456",
+ "sup2@demo.com":"123456"
+};
+function login(){
+ let e=email.value.trim();
+ let p=pass.value.trim();
+ if(users[e]===p){
+   if(e.startsWith("oper")) location.href="operador.html?u="+e;
+   else location.href="supervisor.html?u="+e;
+ } else msg.textContent="Credenciales inválidas";
+}
+</script>
+</body>
+</html>
